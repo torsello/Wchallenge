@@ -26,6 +26,8 @@ import okhttp3.Response;
 public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 
 	private static final String USERS = "/users";
+	private static final String PHOTOS = "/photos";
+	private static final String ALBUMS = "/albums";
 	
 	@Autowired
 	private JsonPlaceHolderClient client;
@@ -57,38 +59,131 @@ public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 
 	@Override
 	public User getUserById(long userId) {
-		// TODO Auto-generated method stub
-		return null;
+		User user = new User();
+		Request request = new Request.Builder().url(host + USERS + "/" + userId).build();
+		
+		try {
+			Response response = client.getNewJsonPlaceHolderClient().newCall(request).execute();
+			
+			if(!response.isSuccessful()) {
+				throw new ResponseServiceException(response.code(), response.message());
+			}
+			
+			String responseBody = response.body().string();
+			user = new Gson().fromJson(responseBody, User.class);
+		} catch (IOException e) {
+			throw new JsonPlaceHolderServiceException("GET - userById");
+		}
+
+		return user;
 	}
 
 	@Override
 	public List<Photo> getAllPhotos() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Photo> photos = new ArrayList<>();
+		Request request = new Request.Builder().url(host + PHOTOS).build();
+		
+		try {
+			Response response = client.getNewJsonPlaceHolderClient().newCall(request).execute();
+			
+			if(!response.isSuccessful()) {
+				throw new ResponseServiceException(response.code(), response.message());
+			}
+			
+			Type photoList = new TypeToken<ArrayList<Photo>>(){}.getType();
+			String responseBody = response.body().string();
+			photos = new Gson().fromJson(responseBody, photoList);
+		} catch (IOException e) {
+			throw new JsonPlaceHolderServiceException("GET - allPhotos");
+		}
+
+		return photos;
 	}
 
 	@Override
 	public Photo getPhotoById(long photoId) {
-		// TODO Auto-generated method stub
-		return null;
+		Photo photo = new Photo();
+		Request request = new Request.Builder().url(host + PHOTOS + "/" + photoId).build();
+		
+		try {
+			Response response = client.getNewJsonPlaceHolderClient().newCall(request).execute();
+			
+			if(!response.isSuccessful()) {
+				throw new ResponseServiceException(response.code(), response.message());
+			}
+			
+			String responseBody = response.body().string();
+			photo = new Gson().fromJson(responseBody, Photo.class);
+		} catch (IOException e) {
+			throw new JsonPlaceHolderServiceException("GET - photoById");
+		}
+
+		return photo;
 	}
 
 	@Override
 	public List<Album> getAllAlbums() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Album> albums = new ArrayList<>();
+		Request request = new Request.Builder().url(host + ALBUMS).build();
+		
+		try {
+			Response response = client.getNewJsonPlaceHolderClient().newCall(request).execute();
+			
+			if(!response.isSuccessful()) {
+				throw new ResponseServiceException(response.code(), response.message());
+			}
+			
+			Type userList = new TypeToken<ArrayList<Album>>(){}.getType();
+			String responseBody = response.body().string();
+			albums = new Gson().fromJson(responseBody, userList);
+		} catch (IOException e) {
+			throw new JsonPlaceHolderServiceException("GET - allAlbums");
+		}
+
+		return albums;
 	}
 
 	@Override
 	public Album getAlbumById(long albumId) {
-		// TODO Auto-generated method stub
-		return null;
+		Album album = new Album();
+		Request request = new Request.Builder().url(host + ALBUMS + "/" + albumId).build();
+		
+		try {
+			Response response = client.getNewJsonPlaceHolderClient().newCall(request).execute();
+			
+			if(!response.isSuccessful()) {
+				throw new ResponseServiceException(response.code(), response.message());
+			}
+			
+			String responseBody = response.body().string();
+			album = new Gson().fromJson(responseBody, Album.class);
+		} catch (IOException e) {
+			throw new JsonPlaceHolderServiceException("GET - photoById");
+		}
+
+		return album;
 	}
 
 	@Override
 	public List<Album> getAlbumsByUser(long userId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Album> albums = new ArrayList<>();
+		Request request = new Request.Builder().url(host + USERS + "/" + userId + ALBUMS).build();
+		
+		try {
+			Response response = client.getNewJsonPlaceHolderClient().newCall(request).execute();
+			
+			if(!response.isSuccessful()) {
+				throw new ResponseServiceException(response.code(), response.message());
+			}
+			
+			Type userList = new TypeToken<ArrayList<Album>>(){}.getType();
+			String responseBody = response.body().string();
+			albums = new Gson().fromJson(responseBody, userList);
+		} catch (IOException e) {
+			throw new JsonPlaceHolderServiceException("GET - allAlbums");
+		}
+
+		return albums;
 	}
 
 }
