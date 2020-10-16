@@ -1,0 +1,20 @@
+2020-10-16 14:32:16 [main                      ] WARN  - [SocialNetwork] InetAddress.getLocalHost().getHostName() took 5005 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-10-16 14:32:21 [main                      ] INFO  - [SocialNetwork] Starting SocialnetworkApplication on Macbook.local with PID 3262 (/Users/macboockpro/Desktop/wchallenge/socialNetworkApp/target/classes started by macboockpro in /Users/macboockpro/Desktop/wchallenge/socialNetworkApp)
+2020-10-16 14:32:21 [main                      ] DEBUG - [SocialNetwork] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-16 14:32:21 [main                      ] INFO  - [SocialNetwork] No active profile set, falling back to default profiles: default
+2020-10-16 14:32:24 [main                      ] INFO  - [SocialNetwork] Started SocialnetworkApplication in 23.157 seconds (JVM running for 29.036)
+2020-10-16 14:34:40 [main                      ] WARN  - [SocialNetwork] InetAddress.getLocalHost().getHostName() took 5005 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-10-16 14:34:45 [main                      ] INFO  - [SocialNetwork] Starting SocialnetworkApplication on Macbook.local with PID 3515 (/Users/macboockpro/Desktop/wchallenge/socialNetworkApp/target/classes started by macboockpro in /Users/macboockpro/Desktop/wchallenge/socialNetworkApp)
+2020-10-16 14:34:45 [main                      ] DEBUG - [SocialNetwork] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-16 14:34:45 [main                      ] INFO  - [SocialNetwork] No active profile set, falling back to default profiles: default
+2020-10-16 14:34:48 [main                      ] INFO  - [SocialNetwork] Started SocialnetworkApplication in 23.584 seconds (JVM running for 29.472)
+2020-10-16 14:41:37 [main                      ] WARN  - [SocialNetwork] InetAddress.getLocalHost().getHostName() took 5004 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-10-16 14:41:42 [main                      ] INFO  - [SocialNetwork] Starting SocialnetworkApplication on Macbook.local with PID 3593 (/Users/macboockpro/Desktop/wchallenge/socialNetworkApp/target/classes started by macboockpro in /Users/macboockpro/Desktop/wchallenge/socialNetworkApp)
+2020-10-16 14:41:42 [main                      ] DEBUG - [SocialNetwork] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-16 14:41:42 [main                      ] INFO  - [SocialNetwork] No active profile set, falling back to default profiles: default
+2020-10-16 14:41:44 [main                      ] INFO  - [SocialNetwork] Started SocialnetworkApplication in 23.068 seconds (JVM running for 28.935)
+2020-10-16 14:44:51 [main                      ] WARN  - [SocialNetwork] InetAddress.getLocalHost().getHostName() took 5002 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2020-10-16 14:44:56 [main                      ] INFO  - [SocialNetwork] Starting SocialnetworkApplication on Macbook.local with PID 3622 (/Users/macboockpro/Desktop/wchallenge/socialNetworkApp/target/classes started by macboockpro in /Users/macboockpro/Desktop/wchallenge/socialNetworkApp)
+2020-10-16 14:44:56 [main                      ] DEBUG - [SocialNetwork] Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-16 14:44:56 [main                      ] INFO  - [SocialNetwork] No active profile set, falling back to default profiles: default
+2020-10-16 14:44:58 [main                      ] INFO  - [SocialNetwork] Started SocialnetworkApplication in 23.057 seconds (JVM running for 28.931)

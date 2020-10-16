@@ -1,4 +1,4 @@
-package com.wolox.socialnetwork.jsonplaceholder;
+package com.wolox.socialnetwork.jsonplaceholder.service;
 
 import java.util.List;
 
