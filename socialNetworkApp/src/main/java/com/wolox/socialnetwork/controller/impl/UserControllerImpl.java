@@ -7,15 +7,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wolox.socialnetwork.controller.UsersController;
+import com.wolox.socialnetwork.controller.UserController;
 import com.wolox.socialnetwork.model.Album;
-import com.wolox.socialnetwork.model.Comments;
+import com.wolox.socialnetwork.model.Comment;
 import com.wolox.socialnetwork.model.Photo;
 import com.wolox.socialnetwork.model.User;
 import com.wolox.socialnetwork.service.SocialNetworkService;
 
 @RestController
-public class UsersControllerImpl implements UsersController {
+public class UserControllerImpl implements UserController {
 
 	@Autowired
 	private SocialNetworkService socialNetworkService;
@@ -41,7 +41,7 @@ public class UsersControllerImpl implements UsersController {
 	}
 
 	@Override
-	public ResponseEntity<List<Comments>> doGetCommentsByUser(long userId) {
+	public ResponseEntity<List<Comment>> doGetCommentsByUser(long userId) {
 		return new ResponseEntity<>(socialNetworkService.getCommentsByUser(userId), HttpStatus.OK);
 	}
 

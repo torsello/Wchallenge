@@ -1,5 +1,6 @@
 package com.wolox.socialnetwork.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,17 +8,17 @@ import org.springframework.stereotype.Service;
 
 import com.wolox.socialnetwork.jsonplaceholder.service.impl.JsonPlaceHolderServiceImpl;
 import com.wolox.socialnetwork.model.Album;
-import com.wolox.socialnetwork.model.Comments;
+import com.wolox.socialnetwork.model.Comment;
 import com.wolox.socialnetwork.model.Photo;
 import com.wolox.socialnetwork.model.User;
 import com.wolox.socialnetwork.service.SocialNetworkService;
 
 @Service
-public class SocialNetworkServiceImpl implements SocialNetworkService{
+public class SocialNetworkServiceImpl implements SocialNetworkService {
 
 	@Autowired
 	private JsonPlaceHolderServiceImpl jsonPlaceHolderService;
-	
+
 	@Override
 	public List<User> getAllUsers() {
 		return jsonPlaceHolderService.getAllUsers();
@@ -59,18 +60,19 @@ public class SocialNetworkServiceImpl implements SocialNetworkService{
 	}
 
 	@Override
-	public List<Comments> getAllComments() {
-		return jsonPlaceHolderService.getAllComments();
+	public List<Comment> getAllComments(String name) {
+		List<Comment> comments = new ArrayList<>();
+
+		if (name != null)
+			comments = jsonPlaceHolderService.getCommentsByName(name);
+		else
+			comments = jsonPlaceHolderService.getAllComments();
+
+		return comments;
 	}
 
 	@Override
-	public List<Comments> getCommentsByUser(long userId) {
+	public List<Comment> getCommentsByUser(long userId) {
 		return jsonPlaceHolderService.getCommentsByUser(userId);
 	}
-
-	@Override
-	public List<Comments> getCommentsByName(String name) {
-		return jsonPlaceHolderService.getCommentsByName(name);
-	}
-
 }

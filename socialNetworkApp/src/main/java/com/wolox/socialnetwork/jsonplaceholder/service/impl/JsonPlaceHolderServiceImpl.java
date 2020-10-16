@@ -16,7 +16,7 @@ import com.wolox.socialnetwork.exception.ResponseServiceException;
 import com.wolox.socialnetwork.jsonplaceholder.JsonPlaceHolderClient;
 import com.wolox.socialnetwork.jsonplaceholder.service.IJsonPlaceHolderService;
 import com.wolox.socialnetwork.model.Album;
-import com.wolox.socialnetwork.model.Comments;
+import com.wolox.socialnetwork.model.Comment;
 import com.wolox.socialnetwork.model.Photo;
 import com.wolox.socialnetwork.model.User;
 
@@ -216,8 +216,8 @@ public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 	}
 
 	@Override
-	public List<Comments> getAllComments() {
-		List<Comments> comments = new ArrayList<>();
+	public List<Comment> getAllComments() {
+		List<Comment> comments = new ArrayList<>();
 		Request request = new Request.Builder().url(host + COMMENTS).build();
 
 		try {
@@ -227,7 +227,7 @@ public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 				throw new ResponseServiceException(response.code(), response.message());
 			}
 
-			Type commentsList = new TypeToken<ArrayList<Comments>>() {
+			Type commentsList = new TypeToken<ArrayList<Comment>>() {
 			}.getType();
 			String responseBody = response.body().string();
 			comments = new Gson().fromJson(responseBody, commentsList);
@@ -239,8 +239,8 @@ public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 	}
 
 	@Override
-	public List<Comments> getCommentsByUser(long userId) {
-		List<Comments> comments = new ArrayList<>();
+	public List<Comment> getCommentsByUser(long userId) {
+		List<Comment> comments = new ArrayList<>();
 		Request request = new Request.Builder().url(host + USERS + "/" + userId + COMMENTS).build();
 
 		try {
@@ -250,7 +250,7 @@ public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 				throw new ResponseServiceException(response.code(), response.message());
 			}
 
-			Type commentsList = new TypeToken<ArrayList<Comments>>() {
+			Type commentsList = new TypeToken<ArrayList<Comment>>() {
 			}.getType();
 			String responseBody = response.body().string();
 			comments = new Gson().fromJson(responseBody, commentsList);
@@ -262,8 +262,8 @@ public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 	}
 
 	@Override
-	public List<Comments> getCommentsByName(String name) {
-		List<Comments> comments = new ArrayList<>();
+	public List<Comment> getCommentsByName(String name) {
+		List<Comment> comments = new ArrayList<>();
 		Request request = new Request.Builder().url(host + COMMENTS + "?name=" + name).build();
 
 		try {
@@ -273,7 +273,7 @@ public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 				throw new ResponseServiceException(response.code(), response.message());
 			}
 
-			Type commentsList = new TypeToken<ArrayList<Comments>>() {
+			Type commentsList = new TypeToken<ArrayList<Comment>>() {
 			}.getType();
 			String responseBody = response.body().string();
 			comments = new Gson().fromJson(responseBody, commentsList);

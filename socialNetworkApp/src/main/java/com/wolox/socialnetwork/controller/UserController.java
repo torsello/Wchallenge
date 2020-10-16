@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wolox.socialnetwork.model.Album;
-import com.wolox.socialnetwork.model.Comments;
+import com.wolox.socialnetwork.model.Comment;
 import com.wolox.socialnetwork.model.Photo;
 import com.wolox.socialnetwork.model.User;
 
 @RestController
 @RequestMapping("/api/users")
-public interface UsersController {
+public interface UserController {
 
 	@GetMapping
 	public ResponseEntity<List<User>> doGetAllUsers();
@@ -30,8 +30,6 @@ public interface UsersController {
 	public ResponseEntity<List<Album>> doGetAlbumsByUser(@PathVariable("userId") long userId);
 	
 	@GetMapping("/{userId}/comments")
-	public ResponseEntity<List<Comments>> doGetCommentsByUser(@PathVariable("userId") long userId);
-	
-	
-	
+	public ResponseEntity<List<Comment>> doGetCommentsByUser(@PathVariable("userId") long userId);
+
 }
