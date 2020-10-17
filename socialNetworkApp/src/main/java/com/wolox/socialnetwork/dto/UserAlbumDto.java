@@ -1,4 +1,4 @@
-package com.wolox.socialnetwork.services.dto;
+package com.wolox.socialnetwork.dto;
 
 import lombok.Data;
 

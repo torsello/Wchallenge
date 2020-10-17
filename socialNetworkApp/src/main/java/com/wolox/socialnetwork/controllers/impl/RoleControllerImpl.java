@@ -8,9 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wolox.socialnetwork.controllers.RoleController;
+import com.wolox.socialnetwork.dto.RoleDto;
 import com.wolox.socialnetwork.models.Role;
 import com.wolox.socialnetwork.services.RoleService;
-import com.wolox.socialnetwork.services.dto.RoleDto;
 
 @RestController
 public class RoleControllerImpl implements RoleController{

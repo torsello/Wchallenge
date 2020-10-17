@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.wolox.socialnetwork.dto.RoleDto;
 import com.wolox.socialnetwork.models.Role;
-import com.wolox.socialnetwork.services.dto.RoleDto;
 
 @Service
 public interface RoleService {

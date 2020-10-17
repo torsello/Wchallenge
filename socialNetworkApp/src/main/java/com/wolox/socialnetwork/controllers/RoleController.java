@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.wolox.socialnetwork.dto.RoleDto;
 import com.wolox.socialnetwork.models.Role;
-import com.wolox.socialnetwork.services.dto.RoleDto;
 
 import io.swagger.annotations.Api;
 

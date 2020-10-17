@@ -8,9 +8,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wolox.socialnetwork.controllers.UserAlbumController;
+import com.wolox.socialnetwork.dto.PatchUserAlbumDto;
+import com.wolox.socialnetwork.dto.UserAlbumDto;
+import com.wolox.socialnetwork.models.User;
 import com.wolox.socialnetwork.models.UserAlbum;
 import com.wolox.socialnetwork.services.UserAlbumService;
-import com.wolox.socialnetwork.services.dto.UserAlbumDto;
 
 @RestController
 public class UserAlbumControllerImpl implements UserAlbumController{
@@ -31,6 +33,16 @@ public class UserAlbumControllerImpl implements UserAlbumController{
 	@Override
 	public ResponseEntity<UserAlbum> doPostUserAlbum(UserAlbumDto userAlbumDto) {
 		return new ResponseEntity<>(userAlbumService.createUserAlbum(userAlbumDto), HttpStatus.CREATED);
+	}
+
+	@Override
+	public ResponseEntity<List<UserAlbum>> doPatchUserAlbum(long albumId, PatchUserAlbumDto patchUserAlbumDto) {
+		return new ResponseEntity<>(userAlbumService.patchUserRoleByAlbumId(albumId, patchUserAlbumDto), HttpStatus.OK);
+	}
+
+	@Override
+	public ResponseEntity<List<User>> doGetUsersByAlbumAndRole(long albumId, long roleId) {
+		return new ResponseEntity<>(userAlbumService.getUsersByAlbumAndRole(albumId, roleId), HttpStatus.OK);
 	}
 
 }

@@ -2,6 +2,7 @@ package com.wolox.socialnetwork.models;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,7 +26,7 @@ public class UserAlbum  implements Serializable{
 	
 	private long userId;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "roleId")
 	private Role role;
 	
