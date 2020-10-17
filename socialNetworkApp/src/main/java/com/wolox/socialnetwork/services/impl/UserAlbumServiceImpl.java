@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.wolox.socialnetwork.dto.PatchUserAlbumDto;
 import com.wolox.socialnetwork.dto.UserAlbumDto;
@@ -19,6 +20,7 @@ import com.wolox.socialnetwork.services.SocialNetworkService;
 import com.wolox.socialnetwork.services.UserAlbumService;
 
 @Service
+@Transactional(readOnly = true)
 public class UserAlbumServiceImpl implements UserAlbumService {
 
 	@Autowired
@@ -31,6 +33,7 @@ public class UserAlbumServiceImpl implements UserAlbumService {
 	private SocialNetworkService socialNetworkService;
 	
 	@Override
+	@Transactional
 	public UserAlbum createUserAlbum(UserAlbumDto userAlbumDto) {
 		UserAlbum userAlbum = new UserAlbum();
 		long userId = userAlbumDto.getUserId();
