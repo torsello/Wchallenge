@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.wolox.socialnetwork.exception.JsonPlaceHolderServiceException;
+import com.wolox.socialnetwork.exception.ObjectNotFoundException;
 import com.wolox.socialnetwork.exception.ResponseServiceException;
 import com.wolox.socialnetwork.exception.handler.model.GenericError;
 
@@ -48,6 +49,18 @@ public class SocialNetworkExceptionHandler {
 
 		logger.error("An error occurred while trying to consume JsonPlaceHolder Service.");
 
+		return error;
+	}
+	
+	@ExceptionHandler(ObjectNotFoundException.class)
+	@ResponseStatus(value = HttpStatus.NOT_FOUND)
+	@ResponseBody
+	protected GenericError ObjectNotFoundExceptionHandler(ObjectNotFoundException ex) {
+
+		String message = new StringBuilder("The object does not exist").append(" (").append(ex.getErrorMessage()).append(")").toString();
+
+		GenericError error = new GenericError("error.wolox.object.not_found", message);
+		logger.error("An error occurred while trying to get an object from the database or external API");
 		return error;
 	}
 	

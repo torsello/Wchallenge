@@ -1,6 +1,7 @@
 package com.wolox.socialnetwork.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,6 @@ import com.wolox.socialnetwork.model.Comment;
 public interface CommentController {
 	
 	@GetMapping
-	public ResponseEntity<List<Comment>> doGetAllComments(@RequestParam(required = false) String name);
+	public ResponseEntity<List<Comment>> doGetAllComments(@RequestParam Optional<String> name);
 	
 }

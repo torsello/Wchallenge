@@ -1,7 +1,7 @@
 package com.wolox.socialnetwork.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -60,11 +60,11 @@ public class SocialNetworkServiceImpl implements SocialNetworkService {
 	}
 
 	@Override
-	public List<Comment> getAllComments(String name) {
-		List<Comment> comments = new ArrayList<>();
+	public List<Comment> getAllComments(Optional<String> name) {
+		List<Comment> comments = null;
 
-		if (name != null)
-			comments = jsonPlaceHolderService.getCommentsByName(name);
+		if (name.isPresent())
+			comments = jsonPlaceHolderService.getCommentsByName(name.get());
 		else
 			comments = jsonPlaceHolderService.getAllComments();
 

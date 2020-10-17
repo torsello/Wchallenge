@@ -1,6 +1,7 @@
 package com.wolox.socialnetwork.controller.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,10 +17,11 @@ public class CommentControllerImpl implements CommentController {
 
 	@Autowired
 	private SocialNetworkService socialNetworkService;
-	
+
 	@Override
-	public ResponseEntity<List<Comment>> doGetAllComments(String name) {
+	public ResponseEntity<List<Comment>> doGetAllComments(Optional<String> name) {
 		return new ResponseEntity<>(socialNetworkService.getAllComments(name), HttpStatus.OK);
 	}
-
+	
+	
 }

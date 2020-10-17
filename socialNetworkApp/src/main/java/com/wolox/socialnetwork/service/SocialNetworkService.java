@@ -1,6 +1,7 @@
 package com.wolox.socialnetwork.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,7 @@ public interface SocialNetworkService {
 	
 	public List<Album> getAlbumsByUser(long userId);
 	
-	public List<Comment> getAllComments(String name);
+	public List<Comment> getAllComments(Optional<String> name);
 	
 	public List<Comment> getCommentsByUser(long userId);
 		
