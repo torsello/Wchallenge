@@ -3,13 +3,20 @@ package com.wolox.socialnetwork;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.wolox.socialnetwork.security.JWTAuthorizationFilter;
 
 @SpringBootApplication
 public class SocialnetworkApplication {
 
+	private static final String[] AUTH_WHITELIST = { "/swagger-resources/**", "/swagger-ui.html", "/v2/api-docs",
+	"/webjars/**" };
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SocialnetworkApplication.class, args);
 	}
@@ -20,7 +27,12 @@ public class SocialnetworkApplication {
 
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
-			http.csrf().disable().authorizeRequests().anyRequest().permitAll();
+			http.csrf().disable()
+				.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
+				.authorizeRequests()
+				.antMatchers(HttpMethod.GET, "/api/login").permitAll()
+				.antMatchers(AUTH_WHITELIST).permitAll()
+				.anyRequest().authenticated();
 		}
 	}
 
