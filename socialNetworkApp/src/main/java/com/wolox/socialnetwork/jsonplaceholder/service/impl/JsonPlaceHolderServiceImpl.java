@@ -11,14 +11,14 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.wolox.socialnetwork.exception.JsonPlaceHolderServiceException;
-import com.wolox.socialnetwork.exception.ResponseServiceException;
+import com.wolox.socialnetwork.exceptions.JsonPlaceHolderServiceException;
+import com.wolox.socialnetwork.exceptions.ResponseServiceException;
 import com.wolox.socialnetwork.jsonplaceholder.JsonPlaceHolderClient;
 import com.wolox.socialnetwork.jsonplaceholder.service.IJsonPlaceHolderService;
-import com.wolox.socialnetwork.model.Album;
-import com.wolox.socialnetwork.model.Comment;
-import com.wolox.socialnetwork.model.Photo;
-import com.wolox.socialnetwork.model.User;
+import com.wolox.socialnetwork.models.Album;
+import com.wolox.socialnetwork.models.Comment;
+import com.wolox.socialnetwork.models.Photo;
+import com.wolox.socialnetwork.models.User;
 
 import okhttp3.Request;
 import okhttp3.Response;
