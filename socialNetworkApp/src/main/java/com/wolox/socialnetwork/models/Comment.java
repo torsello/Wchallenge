@@ -13,6 +13,22 @@ public class Comment implements Serializable{
 	private String name;
 	private String email;
 	private String body;
+
+	
+	public Comment(long id, long postId, String name, String email, String body) {
+		super();
+		this.id = id;
+		this.postId = postId;
+		this.name = name;
+		this.email = email;
+		this.body = body;
+	}
+	
+	public Comment() {
+		
+	}
+	
+	
 	
 	
 

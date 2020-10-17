@@ -18,11 +18,11 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Service
 public class LoginServiceImpl implements LoginService{
 
-	@Value("${token.secret.key}")
-	public String secretKey;
+	@Value("${token.secret.key")
+	private String secretKey;
 	
 	@Value("${token.expiration.milis:600000}")
-	public long tokenDuration;
+	private long tokenDuration;
 	
 	@Override
 	public Token generateToken() {

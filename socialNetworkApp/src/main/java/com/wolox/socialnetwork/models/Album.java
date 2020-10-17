@@ -13,4 +13,17 @@ public class Album implements Serializable{
 	private long userId;
 	private String title;
 	
+	public Album(long id, long userId, String title) {
+		super();
+		this.id = id;
+		this.userId = userId;
+		this.title = title;
+	}
+	
+	public Album() {
+
+	}
+	
+	
+	
 }

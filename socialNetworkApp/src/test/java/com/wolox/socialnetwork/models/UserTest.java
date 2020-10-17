@@ -1,6 +1,5 @@
 package com.wolox.socialnetwork.models;
 
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,11 +20,6 @@ public class UserTest {
     @Before
     public void setUp() throws Exception {
     	user = new User(ID, NAME, USERNAME, EMAIL, address, PHONE, WEBSITE, company);
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        System.out.println("Test Completed");
     }
 
     @Test

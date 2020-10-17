@@ -31,4 +31,18 @@ public class UserAlbum  implements Serializable{
 	private Role role;
 	
 	private long albumId;
+
+	public UserAlbum(long userAlbumId, long userId, Role role, long albumId) {
+		super();
+		this.userAlbumId = userAlbumId;
+		this.userId = userId;
+		this.role = role;
+		this.albumId = albumId;
+	}
+
+	public UserAlbum() {
+		super();
+	}
+	
+	
 }

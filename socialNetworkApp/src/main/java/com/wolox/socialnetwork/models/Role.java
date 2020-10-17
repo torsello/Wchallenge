@@ -22,4 +22,18 @@ public class Role implements Serializable{
 	private long roleId;
 	private String roleName;
 	
+	public Role(long roleId, String roleName) {
+		super();
+		this.roleId = roleId;
+		this.roleName = roleName;
+	}
+
+	public Role() {
+		super();
+	}
+	
+	
+	
+	
+	
 }

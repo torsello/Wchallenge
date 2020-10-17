@@ -15,4 +15,18 @@ public class Photo implements Serializable{
 	private String url;
 	private String thumbnailUrl;
 	
+	public Photo(long id, long albumId, String title, String url, String thumbnailUrl) {
+		super();
+		this.id = id;
+		this.albumId = albumId;
+		this.title = title;
+		this.url = url;
+		this.thumbnailUrl = thumbnailUrl;
+	}
+	
+	public Photo() {
+		
+	}
+	
+	
 }
