@@ -11,8 +11,8 @@ import com.wolox.socialnetwork.models.Role;
 public interface RoleService {
 
 	public Role createRole(RoleDto roleDto);
-	
+
 	public List<Role> getAllRoles();
-	
+
 	public Role getRoleById(long roleId);
 }

@@ -16,10 +16,10 @@ import io.swagger.annotations.ApiResponses;
 @RequestMapping("/api/login")
 @Api(tags = "Login")
 public interface LoginController {
-	
+
 	@GetMapping
 	@ApiOperation(value = "Simulates login, returns token", notes = "This service simulates login")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully login")})
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully login") })
 	public ResponseEntity<Token> doLogon();
 
 }

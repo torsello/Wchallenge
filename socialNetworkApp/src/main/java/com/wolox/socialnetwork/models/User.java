@@ -5,10 +5,10 @@ import java.io.Serializable;
 import lombok.Data;
 
 @Data
-public class User implements Serializable{
+public class User implements Serializable {
 
 	private static final long serialVersionUID = -3820744645837830472L;
-	
+
 	private long id;
 	private String name;
 	private String username;
@@ -17,7 +17,7 @@ public class User implements Serializable{
 	private String phone;
 	private String website;
 	private Company company;
-	
+
 	public User(long id, String name, String username, String email, Address address, String phone, String website,
 			Company company) {
 		super();
@@ -30,10 +30,9 @@ public class User implements Serializable{
 		this.website = website;
 		this.company = company;
 	}
-	
+
 	public User() {
-		
+
 	}
-	
-	
+
 }

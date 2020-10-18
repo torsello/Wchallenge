@@ -20,11 +20,11 @@ import io.swagger.annotations.ApiResponses;
 @RequestMapping("/api/comments")
 @Api(tags = "Comments")
 public interface CommentController {
-	
+
 	@GetMapping
 	@ApiOperation(value = "List all Comments or filtered by name", notes = "This service returns a list of comments")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Comments found"),
 			@ApiResponse(code = 404, message = "Commetns not found") })
 	public ResponseEntity<List<Comment>> doGetAllComments(@RequestParam Optional<String> name);
-	
+
 }

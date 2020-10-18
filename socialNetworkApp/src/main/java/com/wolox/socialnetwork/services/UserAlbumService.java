@@ -13,12 +13,12 @@ import com.wolox.socialnetwork.models.UserAlbum;
 public interface UserAlbumService {
 
 	public UserAlbum createUserAlbum(UserAlbumDto userAlbumDto);
-	
+
 	public List<UserAlbum> getAllUserAlbums();
-	
+
 	public UserAlbum getUserAlbumById(long userAlbumId);
-	
+
 	public List<UserAlbum> patchUserRoleByAlbumId(long albumId, PatchUserAlbumDto patchUserAlbumDto);
-	
+
 	public List<User> getUsersByAlbumAndRole(long albumId, long roleId);
 }

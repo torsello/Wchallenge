@@ -15,11 +15,11 @@ import com.wolox.socialnetwork.models.UserAlbum;
 import com.wolox.socialnetwork.services.UserAlbumService;
 
 @RestController
-public class UserAlbumControllerImpl implements UserAlbumController{
+public class UserAlbumControllerImpl implements UserAlbumController {
 
 	@Autowired
 	private UserAlbumService userAlbumService;
-	
+
 	@Override
 	public ResponseEntity<List<UserAlbum>> doGetAllUserAlbums() {
 		return new ResponseEntity<>(userAlbumService.getAllUserAlbums(), HttpStatus.OK);

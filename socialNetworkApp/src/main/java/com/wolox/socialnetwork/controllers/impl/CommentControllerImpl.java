@@ -22,6 +22,5 @@ public class CommentControllerImpl implements CommentController {
 	public ResponseEntity<List<Comment>> doGetAllComments(Optional<String> name) {
 		return new ResponseEntity<>(socialNetworkService.getAllComments(name), HttpStatus.OK);
 	}
-	
-	
+
 }

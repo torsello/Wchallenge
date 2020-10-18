@@ -10,11 +10,11 @@ import com.wolox.socialnetwork.models.Token;
 import com.wolox.socialnetwork.services.LoginService;
 
 @RestController
-public class LoginControllerImpl implements LoginController{
+public class LoginControllerImpl implements LoginController {
 
 	@Autowired
 	private LoginService loginService;
-	
+
 	@Override
 	public ResponseEntity<Token> doLogon() {
 		return new ResponseEntity<>(loginService.generateToken(), HttpStatus.OK);

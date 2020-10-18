@@ -13,11 +13,11 @@ import com.wolox.socialnetwork.models.Role;
 import com.wolox.socialnetwork.services.RoleService;
 
 @RestController
-public class RoleControllerImpl implements RoleController{
+public class RoleControllerImpl implements RoleController {
 
 	@Autowired
 	private RoleService roleService;
-	
+
 	@Override
 	public ResponseEntity<List<Role>> doGetAllRoles() {
 		return new ResponseEntity<>(roleService.getAllRoles(), HttpStatus.OK);

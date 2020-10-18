@@ -15,10 +15,10 @@ public class JsonPlaceHolderServiceException extends RuntimeException {
 		this.errorMessage = errorMessage;
 		this.errorCode = errorCode;
 	}
-	
+
 	public JsonPlaceHolderServiceException(String serviceMethod) {
 		this.serviceMethod = serviceMethod;
-	} 
+	}
 
 	public String getErrorMessage() {
 		return errorMessage;
@@ -43,7 +43,5 @@ public class JsonPlaceHolderServiceException extends RuntimeException {
 	public void setServiceMethod(String serviceMethod) {
 		this.serviceMethod = serviceMethod;
 	}
-	
-	
 
 }

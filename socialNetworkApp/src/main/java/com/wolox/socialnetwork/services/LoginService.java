@@ -6,7 +6,7 @@ import com.wolox.socialnetwork.models.Token;
 
 @Service
 public interface LoginService {
-	
+
 	public Token generateToken();
 
 }

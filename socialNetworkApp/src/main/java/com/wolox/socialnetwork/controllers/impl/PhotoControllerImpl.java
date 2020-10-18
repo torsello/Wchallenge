@@ -12,11 +12,11 @@ import com.wolox.socialnetwork.models.Photo;
 import com.wolox.socialnetwork.services.SocialNetworkService;
 
 @RestController
-public class PhotoControllerImpl implements PhotoController{
+public class PhotoControllerImpl implements PhotoController {
 
 	@Autowired
 	private SocialNetworkService socialNetworkService;
-	
+
 	@Override
 	public ResponseEntity<List<Photo>> doGetAllPhotos() {
 		return new ResponseEntity<>(socialNetworkService.getAllPhotos(), HttpStatus.OK);

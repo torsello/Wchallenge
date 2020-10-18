@@ -28,25 +28,25 @@ public interface UserController {
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Users found"),
 			@ApiResponse(code = 404, message = "Users not found") })
 	public ResponseEntity<List<User>> doGetAllUsers();
-	
+
 	@GetMapping("/{userId}")
 	@ApiOperation(value = "Return user by id", notes = "This service returns users by id")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "User found"),
 			@ApiResponse(code = 404, message = "User not found") })
 	public ResponseEntity<User> doGetUser(@PathVariable("userId") long userId);
-	
+
 	@GetMapping("/{userId}/photos")
 	@ApiOperation(value = "List all photos by UserId", notes = "This service returns all photos from a user")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Photos found"),
 			@ApiResponse(code = 404, message = "Photos not found") })
 	public ResponseEntity<List<Photo>> doGetPhotosByUser(@PathVariable("userId") long userId);
-	
+
 	@GetMapping("/{userId}/albums")
 	@ApiOperation(value = "List all albums by UserId", notes = "This service returns all albums from a user")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Albums found"),
 			@ApiResponse(code = 404, message = "Albums not found") })
 	public ResponseEntity<List<Album>> doGetAlbumsByUser(@PathVariable("userId") long userId);
-	
+
 	@GetMapping("/{userId}/comments")
 	@ApiOperation(value = "List all comments by UserId", notes = "This service returns all comments from a user")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Comments found"),

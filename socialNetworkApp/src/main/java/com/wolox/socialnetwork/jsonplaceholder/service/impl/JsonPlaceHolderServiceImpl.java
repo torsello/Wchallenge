@@ -5,6 +5,8 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -26,6 +28,8 @@ import okhttp3.Response;
 @Service
 public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 
+	private final Logger logger = LoggerFactory.getLogger(getClass().getName());
+
 	private static final String USERS = "/users";
 	private static final String PHOTOS = "/photos";
 	private static final String ALBUMS = "/albums";
@@ -39,6 +43,7 @@ public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 
 	@Override
 	public List<User> getAllUsers() {
+		logger.info("JsonPlaceHolderService - getAllUsers");
 		List<User> users = new ArrayList<>();
 		Request request = new Request.Builder().url(host + USERS).build();
 
@@ -62,6 +67,8 @@ public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 
 	@Override
 	public User getUserById(long userId) {
+		logger.info("JsonPlaceHolderService - getUserById");
+
 		User user = new User();
 		Request request = new Request.Builder().url(host + USERS + "/" + userId).build();
 
@@ -83,6 +90,8 @@ public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 
 	@Override
 	public List<Photo> getAllPhotos() {
+		logger.info("JsonPlaceHolderService - getAllPhotos");
+
 		List<Photo> photos = new ArrayList<>();
 		Request request = new Request.Builder().url(host + PHOTOS).build();
 
@@ -106,6 +115,8 @@ public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 
 	@Override
 	public Photo getPhotoById(long photoId) {
+		logger.info("JsonPlaceHolderService - getPhotoById");
+
 		Photo photo = new Photo();
 		Request request = new Request.Builder().url(host + PHOTOS + "/" + photoId).build();
 
@@ -127,6 +138,8 @@ public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 
 	@Override
 	public List<Album> getAllAlbums() {
+		logger.info("JsonPlaceHolderService - getAllAlbums");
+
 		List<Album> albums = new ArrayList<>();
 		Request request = new Request.Builder().url(host + ALBUMS).build();
 
@@ -150,6 +163,8 @@ public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 
 	@Override
 	public Album getAlbumById(long albumId) {
+		logger.info("JsonPlaceHolderService - getAlbumById");
+
 		Album album = new Album();
 		Request request = new Request.Builder().url(host + ALBUMS + "/" + albumId).build();
 
@@ -171,6 +186,8 @@ public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 
 	@Override
 	public List<Album> getAlbumsByUser(long userId) {
+		logger.info("JsonPlaceHolderService - getAlbumsByUser");
+
 		List<Album> albums = new ArrayList<>();
 		Request request = new Request.Builder().url(host + USERS + "/" + userId + ALBUMS).build();
 
@@ -194,6 +211,8 @@ public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 
 	@Override
 	public List<Photo> getPhotosByUser(long userId) {
+		logger.info("JsonPlaceHolderService - getPhotosByUser");
+
 		List<Photo> photos = new ArrayList<>();
 		Request request = new Request.Builder().url(host + USERS + "/" + userId + PHOTOS).build();
 
@@ -217,6 +236,8 @@ public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 
 	@Override
 	public List<Comment> getAllComments() {
+		logger.info("JsonPlaceHolderService - getAllComments");
+
 		List<Comment> comments = new ArrayList<>();
 		Request request = new Request.Builder().url(host + COMMENTS).build();
 
@@ -240,6 +261,8 @@ public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 
 	@Override
 	public List<Comment> getCommentsByUser(long userId) {
+		logger.info("JsonPlaceHolderService - getCommentsByUser");
+
 		List<Comment> comments = new ArrayList<>();
 		Request request = new Request.Builder().url(host + USERS + "/" + userId + COMMENTS).build();
 
@@ -263,6 +286,8 @@ public class JsonPlaceHolderServiceImpl implements IJsonPlaceHolderService {
 
 	@Override
 	public List<Comment> getCommentsByName(String name) {
+		logger.info("JsonPlaceHolderService - getCommentsByName");
+
 		List<Comment> comments = new ArrayList<>();
 		Request request = new Request.Builder().url(host + COMMENTS + "?name=" + name).build();
 

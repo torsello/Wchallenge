@@ -5,7 +5,7 @@ import java.io.Serializable;
 import lombok.Data;
 
 @Data
-public class Photo implements Serializable{
+public class Photo implements Serializable {
 
 	private static final long serialVersionUID = -6667415721017540189L;
 
@@ -14,7 +14,7 @@ public class Photo implements Serializable{
 	private String title;
 	private String url;
 	private String thumbnailUrl;
-	
+
 	public Photo(long id, long albumId, String title, String url, String thumbnailUrl) {
 		super();
 		this.id = id;
@@ -23,10 +23,9 @@ public class Photo implements Serializable{
 		this.url = url;
 		this.thumbnailUrl = thumbnailUrl;
 	}
-	
+
 	public Photo() {
-		
+
 	}
-	
-	
+
 }

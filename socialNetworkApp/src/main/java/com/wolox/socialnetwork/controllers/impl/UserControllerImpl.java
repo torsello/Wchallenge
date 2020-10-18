@@ -19,8 +19,8 @@ public class UserControllerImpl implements UserController {
 
 	@Autowired
 	private SocialNetworkService socialNetworkService;
-	
-	@Override	
+
+	@Override
 	public ResponseEntity<List<User>> doGetAllUsers() {
 		return new ResponseEntity<>(socialNetworkService.getAllUsers(), HttpStatus.OK);
 	}

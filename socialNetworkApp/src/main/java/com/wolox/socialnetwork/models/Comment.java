@@ -5,7 +5,7 @@ import java.io.Serializable;
 import lombok.Data;
 
 @Data
-public class Comment implements Serializable{
+public class Comment implements Serializable {
 
 	private static final long serialVersionUID = 7745538469904528149L;
 	private long id;
@@ -14,7 +14,6 @@ public class Comment implements Serializable{
 	private String email;
 	private String body;
 
-	
 	public Comment(long id, long postId, String name, String email, String body) {
 		super();
 		this.id = id;
@@ -23,13 +22,9 @@ public class Comment implements Serializable{
 		this.email = email;
 		this.body = body;
 	}
-	
+
 	public Comment() {
-		
+
 	}
-	
-	
-	
-	
 
 }

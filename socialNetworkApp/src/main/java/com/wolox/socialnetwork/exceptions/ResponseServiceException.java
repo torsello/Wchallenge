@@ -30,6 +30,5 @@ public class ResponseServiceException extends RuntimeException {
 	public void setErrorCode(int errorCode) {
 		this.errorCode = errorCode;
 	}
-	
 
 }

@@ -2,7 +2,6 @@ package com.wolox.socialnetwork.models;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,20 +15,20 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "userAlbum")
-public class UserAlbum  implements Serializable{
-	
+public class UserAlbum implements Serializable {
+
 	private static final long serialVersionUID = 2558326058315712856L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long userAlbumId;
-	
+
 	private long userId;
-	
-	@ManyToOne(cascade = CascadeType.PERSIST)
+
+	@ManyToOne
 	@JoinColumn(name = "roleId")
 	private Role role;
-	
+
 	private long albumId;
 
 	public UserAlbum(long userAlbumId, long userId, Role role, long albumId) {
@@ -43,6 +42,5 @@ public class UserAlbum  implements Serializable{
 	public UserAlbum() {
 		super();
 	}
-	
-	
+
 }

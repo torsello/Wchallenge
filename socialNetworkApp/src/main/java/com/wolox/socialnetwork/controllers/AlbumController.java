@@ -19,17 +19,17 @@ import io.swagger.annotations.ApiResponses;
 @RequestMapping("/api/albums")
 @Api(tags = "Albums")
 public interface AlbumController {
-	
+
 	@GetMapping
 	@ApiOperation(value = "List all Albums", notes = "This service returns all Albums")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Albums found"),
 			@ApiResponse(code = 404, message = "Albums not found") })
 	public ResponseEntity<List<Album>> doGetAllAlbums();
-	
+
 	@GetMapping("/{albumId}")
 	@ApiOperation(value = "Return album by id", notes = "This service returns album by id")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Album found"),
 			@ApiResponse(code = 404, message = "Album not found") })
 	public ResponseEntity<Album> doGetAlbum(@PathVariable("albumId") long albumId);
-	
+
 }

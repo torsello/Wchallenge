@@ -12,11 +12,11 @@ import com.wolox.socialnetwork.models.Album;
 import com.wolox.socialnetwork.services.SocialNetworkService;
 
 @RestController
-public class AlbumControllerImpl implements AlbumController{
+public class AlbumControllerImpl implements AlbumController {
 
 	@Autowired
 	private SocialNetworkService socialNetworkService;
-	
+
 	@Override
 	public ResponseEntity<List<Album>> doGetAllAlbums() {
 		return new ResponseEntity<>(socialNetworkService.getAllAlbums(), HttpStatus.OK);

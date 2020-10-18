@@ -24,22 +24,22 @@ public class SocialNetworkExceptionHandler {
 
 	@Value("${JsonPlaceHolderServiceException.code}")
 	private String jsonPlaceHolderServiceCode;
-	
+
 	@Value("${JsonPlaceHolderServiceException.message}")
 	private String jsonPlaceHolderServiceMessage;
-	
+
 	@Value("${ResponseServiceException.code}")
 	private String responseServiceCode;
-	
+
 	@Value("${ResponseServiceException.message}")
 	private String responseServiceMessage;
-	
+
 	@Value("${ObjectNotFoundException.code}")
 	private String objectNotFoundCode;
-	
+
 	@Value("${ObjectNotFoundException.message}")
 	private String objectNotFoundMessage;
-	
+
 	@ExceptionHandler(JsonPlaceHolderServiceException.class)
 	@ResponseStatus(value = HttpStatus.UNPROCESSABLE_ENTITY)
 	@ResponseBody
@@ -55,7 +55,7 @@ public class SocialNetworkExceptionHandler {
 
 		return error;
 	}
-	
+
 	@ExceptionHandler(ResponseServiceException.class)
 	@ResponseStatus(value = HttpStatus.NOT_FOUND)
 	@ResponseBody
@@ -70,17 +70,18 @@ public class SocialNetworkExceptionHandler {
 
 		return error;
 	}
-	
+
 	@ExceptionHandler(ObjectNotFoundException.class)
 	@ResponseStatus(value = HttpStatus.NOT_FOUND)
 	@ResponseBody
 	protected GenericError ObjectNotFoundExceptionHandler(ObjectNotFoundException ex) {
 
-		String message = new StringBuilder(objectNotFoundMessage).append(" (").append(ex.getErrorMessage()).append(")").toString();
+		String message = new StringBuilder(objectNotFoundMessage).append(" (").append(ex.getErrorMessage()).append(")")
+				.toString();
 
 		GenericError error = new GenericError(objectNotFoundCode, message);
 		logger.error("An error occurred while trying to get an object from the database or external API");
 		return error;
 	}
-	
+
 }

@@ -26,7 +26,8 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 	private static final String SECRET = "ShVmYq3s6v9y$B&E)H@McQfTjWnZr4u7";
 
 	@Override
-	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
+	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
+			throws ServletException, IOException {
 		try {
 			if (existeJWTToken(request, response)) {
 				Claims claims = validateToken(request);
@@ -36,7 +37,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 					SecurityContextHolder.clearContext();
 				}
 			} else {
-					SecurityContextHolder.clearContext();
+				SecurityContextHolder.clearContext();
 			}
 			chain.doFilter(request, response);
 		} catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException e) {
@@ -44,7 +45,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 			((HttpServletResponse) response).sendError(HttpServletResponse.SC_FORBIDDEN, e.getMessage());
 			return;
 		}
-	}	
+	}
 
 	private Claims validateToken(HttpServletRequest request) {
 		String jwtToken = request.getHeader(HEADER);
