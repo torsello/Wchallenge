@@ -43,13 +43,13 @@ public interface UserAlbumController {
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "UserAlbum created") })
 	public ResponseEntity<UserAlbum> doPostUserAlbum(@RequestBody UserAlbumDto userAlbumDto);
 	
-	@PatchMapping("/album/{albumId}")
+	@PatchMapping("/albums/{albumId}")
 	@ApiOperation(value = "Change a user's permissions for a specific album", notes = "This service update UsersAlbums")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Users found"),
 			@ApiResponse(code = 404, message = "Users not found") })
 	public ResponseEntity<List<UserAlbum>> doPatchUserAlbum(@PathVariable("albumId") long albumId, @RequestBody PatchUserAlbumDto patchUserAlbumDto);
 	
-	@GetMapping("/album/{albumId}/role/{roleId}")
+	@GetMapping("/albums/{albumId}/roles/{roleId}")
 	@ApiOperation(value = "Return all users who have a specific permission regarding a specific album", notes = "This service returns a list of Users")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Users found") })
 	public ResponseEntity<List<User>> doGetUsersByAlbumAndRole(@PathVariable("albumId") long albumId, @PathVariable("roleId") long roleId);

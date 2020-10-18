@@ -15,6 +15,7 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration
 @PropertySource("file:${root.path}/app-directory/cfg/jsonPlaceHolderService/config.properties")
 @PropertySource("file:${root.path}/app-directory/cfg/security/config.properties")
+@PropertySource("file:${root.path}/app-directory/cfg/messages/config.properties")
 public class RootConfig {
 
 }

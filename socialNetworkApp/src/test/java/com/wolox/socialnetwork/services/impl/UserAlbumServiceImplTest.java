@@ -1,6 +1,7 @@
 package com.wolox.socialnetwork.services.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -17,6 +18,7 @@ import org.mockito.MockitoAnnotations;
 
 import com.wolox.socialnetwork.dto.PatchUserAlbumDto;
 import com.wolox.socialnetwork.dto.UserAlbumDto;
+import com.wolox.socialnetwork.exceptions.ObjectNotFoundException;
 import com.wolox.socialnetwork.models.Address;
 import com.wolox.socialnetwork.models.Album;
 import com.wolox.socialnetwork.models.Company;
@@ -100,6 +102,10 @@ public class UserAlbumServiceImplTest {
 		when(repository.save(userAlbum)).thenReturn(userAlbum);
 		userAlbumService.createUserAlbum(userAlbumDto);
 		verify(repository, times(1)).save(any(UserAlbum.class));
+		when(roleRepository.findByRoleId(1)).thenReturn(null);
+		when(socialNetworkService.getUserById(1)).thenReturn(null);
+		when(socialNetworkService.getAlbumById(1)).thenReturn(null);
+		assertThrows(ObjectNotFoundException.class, () ->{ userAlbumService.createUserAlbum(userAlbumDto); });
 	}
 
 	@Test
@@ -122,6 +128,9 @@ public class UserAlbumServiceImplTest {
 		when(repository.save(userAlbum)).thenReturn(userAlbum);
 		
 		assertEquals(1, userAlbumService.patchUserRoleByAlbumId(1, patchUserAlbumDto).size());
+		
+		when(roleRepository.findByRoleId(1)).thenReturn(null);
+		assertThrows(ObjectNotFoundException.class, () ->{  userAlbumService.patchUserRoleByAlbumId(1, patchUserAlbumDto); });
 	}
 	
 	@Test
@@ -132,5 +141,8 @@ public class UserAlbumServiceImplTest {
 		when(socialNetworkService.getUserById(1)).thenReturn(user);
 		
 		assertEquals(Stream.of(user).collect(Collectors.toList()), userAlbumService.getUsersByAlbumAndRole(1, 1));
+	
+		when(roleRepository.findByRoleId(1)).thenReturn(null);
+		assertThrows(ObjectNotFoundException.class, () ->{  userAlbumService.getUsersByAlbumAndRole(1, 1); });
 	}
 }

@@ -2,6 +2,7 @@ package com.wolox.socialnetwork.exceptions.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -21,13 +22,31 @@ public class SocialNetworkExceptionHandler {
 
 	private final Logger logger = LoggerFactory.getLogger(getClass().getName());
 
+	@Value("${JsonPlaceHolderServiceException.code}")
+	private String jsonPlaceHolderServiceCode;
+	
+	@Value("${JsonPlaceHolderServiceException.message}")
+	private String jsonPlaceHolderServiceMessage;
+	
+	@Value("${ResponseServiceException.code}")
+	private String responseServiceCode;
+	
+	@Value("${ResponseServiceException.message}")
+	private String responseServiceMessage;
+	
+	@Value("${ObjectNotFoundException.code}")
+	private String objectNotFoundCode;
+	
+	@Value("${ObjectNotFoundException.message}")
+	private String objectNotFoundMessage;
+	
 	@ExceptionHandler(JsonPlaceHolderServiceException.class)
 	@ResponseStatus(value = HttpStatus.UNPROCESSABLE_ENTITY)
 	@ResponseBody
 	protected GenericError JsonPlaceHolderServiceExceptionHandler(JsonPlaceHolderServiceException ex) {
 
-		String code = "error.wolox.socialnetwork.json_place_holder.response";
-		String message = new StringBuilder("Error fetching data from ").append("[").append(ex.getServiceMethod())
+		String code = jsonPlaceHolderServiceCode;
+		String message = new StringBuilder(jsonPlaceHolderServiceMessage).append(" [").append(ex.getServiceMethod())
 				.append("]").toString();
 
 		GenericError error = new GenericError(code, message);
@@ -42,8 +61,8 @@ public class SocialNetworkExceptionHandler {
 	@ResponseBody
 	protected GenericError ResponseServiceExceptionHandler(ResponseServiceException ex) {
 
-		String code = new StringBuilder("error.wolox.socialnetwork.json_place_holder.response.code.").append(ex.getErrorCode()).toString();
-		String message = ex.getErrorMessage();
+		String code = new StringBuilder(responseServiceCode).append(ex.getErrorCode()).toString();
+		String message = responseServiceMessage;
 
 		GenericError error = new GenericError(code, message);
 
@@ -57,9 +76,9 @@ public class SocialNetworkExceptionHandler {
 	@ResponseBody
 	protected GenericError ObjectNotFoundExceptionHandler(ObjectNotFoundException ex) {
 
-		String message = new StringBuilder("The object does not exist").append(" (").append(ex.getErrorMessage()).append(")").toString();
+		String message = new StringBuilder(objectNotFoundMessage).append(" (").append(ex.getErrorMessage()).append(")").toString();
 
-		GenericError error = new GenericError("error.wolox.object.not_found", message);
+		GenericError error = new GenericError(objectNotFoundCode, message);
 		logger.error("An error occurred while trying to get an object from the database or external API");
 		return error;
 	}

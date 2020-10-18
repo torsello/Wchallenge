@@ -43,7 +43,7 @@ public class UserAlbumServiceImpl implements UserAlbumService {
 		Album album = socialNetworkService.getAlbumById(albumId);
 		
 		if(role == null || user == null || album == null) {
-			throw new ObjectNotFoundException("role, user or album");
+			throw new ObjectNotFoundException("role");
 		}
 		
 		userAlbum.setRole(role);
@@ -69,7 +69,7 @@ public class UserAlbumServiceImpl implements UserAlbumService {
 		Role role = roleRepository.findByRoleId(patchUserAlbumDto.getRoleId());
 		
 		if(role == null) {
-			throw new ObjectNotFoundException("role, user or album");
+			throw new ObjectNotFoundException("role");
 		}
 		
 		usersAlbums.stream().forEach(x ->{
@@ -86,7 +86,7 @@ public class UserAlbumServiceImpl implements UserAlbumService {
 		List<User> users = new ArrayList<>();
 		
 		if(role == null) {
-			throw new ObjectNotFoundException("role, user or album");
+			throw new ObjectNotFoundException("role");
 		}
 		
 		List<Long> usersId = repository.findAllUsersIdByAlbumAndRole(albumId, role);

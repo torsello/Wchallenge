@@ -18,7 +18,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Service
 public class LoginServiceImpl implements LoginService{
 
-	@Value("${token.secret.key")
+	@Value("${token.secret.key}")
 	private String secretKey;
 	
 	@Value("${token.expiration.milis:600000}")
