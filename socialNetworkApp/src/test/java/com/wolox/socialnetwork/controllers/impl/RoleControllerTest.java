@@ -57,6 +57,6 @@ public class RoleControllerTest {
 	@Test
 	public void doPostRoleTest() {
 		when(service.createRole(roleDto)).thenReturn(role);
-		assertEquals(role, controller.doGetRole(1).getBody());
+		assertEquals(role, controller.doPostRole(roleDto).getBody());
 	}
 }

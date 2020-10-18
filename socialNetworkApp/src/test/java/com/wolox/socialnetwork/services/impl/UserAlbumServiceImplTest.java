@@ -1,10 +1,11 @@
 package com.wolox.socialnetwork.services.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -97,8 +98,8 @@ public class UserAlbumServiceImplTest {
 		when(socialNetworkService.getUserById(1)).thenReturn(user);
 		when(socialNetworkService.getAlbumById(1)).thenReturn(album);
 		when(repository.save(userAlbum)).thenReturn(userAlbum);
-
-		assertEquals(userAlbum, userAlbumService.createUserAlbum(userAlbumDto));
+		userAlbumService.createUserAlbum(userAlbumDto);
+		verify(repository, times(1)).save(any(UserAlbum.class));
 	}
 
 	@Test
@@ -125,13 +126,11 @@ public class UserAlbumServiceImplTest {
 	
 	@Test
 	public void getUsersByAlbumAndRoleTest() {
-		List<Long> usersIds = new ArrayList<>();
-		List<User> users = new ArrayList<>();
-		users.add(user);
-		usersIds.add(1L);
+		Long userId = 1L;
 		when(roleRepository.findByRoleId(1)).thenReturn(role);
-		when(repository.findAllUsersIdByAlbumAndRole(1, role)).thenReturn(usersIds);
+		when(repository.findAllUsersIdByAlbumAndRole(1, role)).thenReturn(Stream.of(userId).collect(Collectors.toList()));
+		when(socialNetworkService.getUserById(1)).thenReturn(user);
 		
-		assertEquals(users, userAlbumService.getUsersByAlbumAndRole(1, 1));
+		assertEquals(Stream.of(user).collect(Collectors.toList()), userAlbumService.getUsersByAlbumAndRole(1, 1));
 	}
 }

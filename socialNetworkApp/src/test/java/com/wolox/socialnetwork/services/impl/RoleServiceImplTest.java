@@ -1,6 +1,9 @@
 package com.wolox.socialnetwork.services.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.stream.Collectors;
@@ -45,8 +48,8 @@ public class RoleServiceImplTest {
 	@Test
 	public void createRoleTest() {
 		when(repository.save(role)).thenReturn(role);
-		
-		assertEquals(role, roleService.createRole(roleDto));
+		roleService.createRole(roleDto);
+		verify(repository, times(1)).save(any(Role.class));
 	}
 
 	@Test

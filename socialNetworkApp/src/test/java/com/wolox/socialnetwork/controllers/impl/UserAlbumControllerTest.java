@@ -88,7 +88,7 @@ public class UserAlbumControllerTest {
 	@Test
 	public void doPostUserAlbumTest() {
 		when(service.createUserAlbum(userAlbumDto)).thenReturn(userAlbum);
-		assertEquals(userAlbum, controller.doGetUserAlbum(1).getBody());
+		assertEquals(userAlbum, controller.doPostUserAlbum(userAlbumDto).getBody());
 	}
 	
 	@Test
