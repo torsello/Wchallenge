@@ -4,8 +4,8 @@
 ### Before Running application ###
 
 #### Environment variable ####
-Before running the application, it will be necessary to create an environment variable named ___ root.path ___ with the directory where the __app-directory__ folder is located.
-In my case, the folder is located at: __ / Users / macboockpro / Desktop / wchallenge__
+Before running the application, it will be necessary to create an environment variable named ___root.path___ with the directory where the __app-directory__ folder is located.
+In my case, the folder is located at: __/ Users / macboockpro / Desktop / wchallenge__
 
 So:
 
