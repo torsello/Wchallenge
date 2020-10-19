@@ -29,3 +29,17 @@ Contains:
 
 * Cfg (config files)
 * Logs (Logs from the app)
+#
+### Usage ###
+
+* Go to http://localhost:8080/swagger-ui.html
+
+First of all, invoke GET http://localhost:8080/api/login, it will return a token that will be used to authenticate in the other endpoints.
+
+### To invoke others endpoints: ###
+
+___Headers___  
+```bash
+Key: token   
+Value: Token retrieved from /api/login
+```
