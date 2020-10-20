@@ -1,5 +1,7 @@
 package com.wolox.socialnetwork.models;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -44,5 +46,6 @@ public class UserTest {
         user.setPhone(PHONE);
         user.setUsername(USERNAME);
         user.setWebsite(WEBSITE);
+        assertEquals(NAME, user.getName());
     }
 }

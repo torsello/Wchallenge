@@ -34,7 +34,7 @@ public interface UserController {
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "User found"),
 			@ApiResponse(code = 404, message = "User not found") })
 	public ResponseEntity<User> doGetUser(@PathVariable("userId") long userId);
-
+	 
 	@GetMapping("/{userId}/photos")
 	@ApiOperation(value = "List all photos by UserId", notes = "This service returns all photos from a user")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Photos found"),

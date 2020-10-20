@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wolox.socialnetwork.models.Token;
+import com.wolox.socialnetwork.models.TokenAuth;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -20,6 +20,6 @@ public interface LoginController {
 	@GetMapping
 	@ApiOperation(value = "Simulates login, returns token", notes = "This service simulates login")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully login") })
-	public ResponseEntity<Token> doLogon();
+	public ResponseEntity<TokenAuth> doLogon();
 
 }

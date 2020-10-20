@@ -105,9 +105,9 @@ public class UserAlbumServiceImpl implements UserAlbumService {
 
 		List<Long> usersId = repository.findAllUsersIdByAlbumAndRole(albumId, role);
 
-		usersId.stream().forEach(x -> {
-			users.add(socialNetworkService.getUserById(x));
-		});
+		usersId.stream().forEach(x -> 
+			users.add(socialNetworkService.getUserById(x))
+		);
 
 		return users;
 	}

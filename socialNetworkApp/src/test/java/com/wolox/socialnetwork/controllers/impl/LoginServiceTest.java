@@ -9,7 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.wolox.socialnetwork.models.Token;
+import com.wolox.socialnetwork.models.TokenAuth;
 import com.wolox.socialnetwork.services.impl.LoginServiceImpl;
 
 public class LoginServiceTest {
@@ -20,7 +20,7 @@ public class LoginServiceTest {
 	@Mock
 	private LoginServiceImpl service;
 	
-	private Token token;
+	private TokenAuth token;
 	
 	@Before
 	public void initMocks() {
@@ -28,8 +28,8 @@ public class LoginServiceTest {
 		MockitoAnnotations.initMocks(this);
 	}
 	
-	private Token getToken() {
-		return new Token("1234");
+	private TokenAuth getToken() {
+		return new TokenAuth("1234");
 	}
 	
 	@Test
