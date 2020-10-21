@@ -1,5 +1,6 @@
 package com.wolox.socialnetwork;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +22,9 @@ public class SocialnetworkApplication {
 		SpringApplication.run(SocialnetworkApplication.class, args);
 	}
 
+	@Autowired
+	private JWTAuthorizationFilter jwtFilter;
+	
 	@EnableWebSecurity
 	@Configuration
 	class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -28,7 +32,7 @@ public class SocialnetworkApplication {
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 			http.csrf().disable()
-					.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
+					.addFilterAfter(jwtFilter, UsernamePasswordAuthenticationFilter.class)
 					.authorizeRequests().antMatchers(HttpMethod.GET, "/api/login").permitAll()
 					.antMatchers(AUTH_WHITELIST).permitAll().anyRequest().authenticated();
 		}
